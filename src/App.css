@@ -3,14 +3,6 @@
 @tailwind utilities;
 
 
-.qcive{
-  transform: translate(100%);
-}
-.qcives{
-  transform: translate(200%);
-}
-
-.active {
-  transform: translate(-100%);
-
+.toggel {
+ left: -50%;
 }
