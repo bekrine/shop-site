@@ -7,14 +7,14 @@ function Navbar() {
     const dispatch=useDispatch()
   return (
     <div className='flex justify-items-center justify-between p-2.5	'>
-        <div className='flex ml-4'>
+        <div className='ml-0 flex sm:flex ml-4'>
             <button className=' '>
         <FontAwesomeIcon 
             icon={faBars}
             className='mb-6 text-2xl'
             onClick={()=>dispatch(toggle())}/>
             </button>
-        <a href='' className='ml-4 ms:ml-16'>
+        <a href='' className='ml-[.5rem] sm:ml-4'>
 
             <span className='text-5xl lg:text-6xl'>MbStore</span>
         </a>
