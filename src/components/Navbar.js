@@ -1,6 +1,7 @@
 import React from 'react'
 import {useDispatch} from 'react-redux'
 import {toggle} from '../featuers/toggelMenu/toggelMenu'
+import {toggleCard} from '../featuers/toggelcard/toggelcard'
 import{FontAwesomeIcon}from '@fortawesome/react-fontawesome'
 import {faShoppingCart,faBars} from '@fortawesome/free-solid-svg-icons'
 function Navbar() {
@@ -15,7 +16,6 @@ function Navbar() {
             onClick={()=>dispatch(toggle())}/>
             </button>
         <a href='' className='ml-[.5rem] sm:ml-4'>
-
             <span className='text-5xl lg:text-6xl'>MbStore</span>
         </a>
         </div>
@@ -34,7 +34,9 @@ function Navbar() {
             <a href='' className='font-mono'>Aide</a>
             </span>
             </div>
-            <div className='  mr-6 ms:mr-8 '>
+            <div 
+            className='  mr-6 ms:mr-8 '
+            onClick={()=>dispatch(toggleCard())}>
                 <span>
 
             <FontAwesomeIcon icon={faShoppingCart} />

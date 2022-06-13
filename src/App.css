@@ -2,7 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
-
+html{
+width: 100%;
+}
 .toggel {
  left: -100%;
+}
+
+.toggelcard{
+    right: -100%;
+    display: none
 }
