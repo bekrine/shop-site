@@ -1,4 +1,5 @@
 import React from 'react'
+import {Link} from 'react-router-dom'
 import {useDispatch} from 'react-redux'
 import {toggle} from '../featuers/toggelMenu/toggelMenu'
 import {toggleCard} from '../featuers/toggelcard/toggelcard'
@@ -15,15 +16,20 @@ function Navbar() {
             className='mb-6 text-2xl'
             onClick={()=>dispatch(toggle())}/>
             </button>
-        <a href='' className='ml-[.5rem] sm:ml-4'>
-            <span className='text-5xl lg:text-6xl'>MbStore</span>
-        </a>
+        <span href='' className='ml-[.5rem] sm:ml-4'>
+            <span className='text-5xl lg:text-6xl'>
+                <Link to='/'>MbStore</Link>
+                 </span>
+        </span>
         </div>
         <div className='ml-14  ms:pt-2 flex items-center '>
             <span className='mr-4  lg:mr-14 border-b-2 border-neutral-800'>
-            <a href=''className='uppercase mb-6 pr-7  ' >
+        
+                <Link className='uppercase mb-6 pr-7  ' to='recherch' >
+
                 <span >recherche</span>
-            </a>
+                </Link>
+            
             </span>
             
             <div className='hidden md:flex'>
