@@ -1,34 +1,21 @@
 import React from 'react'
-import image1 from '../../img/product.jpeg'
-import image2 from '../../img/product1.jpeg'
-import image3 from '../../img/product2.jpeg'
+import { useParams , Link} from 'react-router-dom'
+import {data} from '../../data/data'
 
 function Producte() {
-    let data = [{
-        imge:image1,
-        title:'product1',
-        price:333,
-        desc:"S'AGISSE DE MODÈLES PORTEFEUILLE OU AJUSTÉS, NOUS VOUS PROPOSONS TOUS LES STYLES, COULEURS ET IMPRIMÉS POUR LES ROBES DE LA SAISON."
-    },
-    {
-        imge:image2,
-        title:'product2',
-        price:311,
-        desc:"S'AGISSE DE MODÈLES PORTEFEUILLE OU AJUSTÉS, NOUS VOUS PROPOSONS TOUS LES STYLES, COULEURS ET IMPRIMÉS POUR LES ROBES DE LA SAISON."
-    },{
-        imge:image3,
-        title:'product3',
-        price:3223,
-        desc:"S'AGISSE DE MODÈLES PORTEFEUILLE OU AJUSTÉS, NOUS VOUS PROPOSONS TOUS LES STYLES, COULEURS ET IMPRIMÉS POUR LES ROBES DE LA SAISON."
-    }]
+    const param=useParams()
+    
+    const filterData= data.filter(item=>item.gender === param.type)
   return (
-          data.map((item ,index)=>{
+          filterData.map((item ,index)=>{
               return(
                 <div key={index}  className='mt-[5%]'>
                     <div className='w-1/3 mx-auto my-0'>
                         
                 <div>
+                    <Link to={`/detailProduct/${item.id}`}>
                     <img src={item.imge} />
+                    </Link>
                 </div>
                 <div className='flex justify-between text-xl mt-[2%] '>
                     <span>

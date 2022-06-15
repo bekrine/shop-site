@@ -1,26 +1,21 @@
 import React, { useEffect, useRef, useState } from 'react'
+import { Link } from 'react-router-dom'
 import {nextImg ,previousImg,sliderDots} from '../utils/controlSlider'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faAngleDoubleLeft,faAngleDoubleRight,faC,faCircle } from '@fortawesome/free-solid-svg-icons'
+import {dataSlaider} from '../data/data'
 
-import slidimg from '../img/sliderimg.jpeg'
-import slidimg1 from '../img/sliderimg1.jpeg'
-import slidimg2 from '../img/sliderimg2.jpeg'
 
 function Slaider({setOffset}) {
    const sliderRef =useRef()
-   const [imag,setImag]=useState([
-       slidimg,
-       slidimg1,
-       slidimg2
-   ])
+   
    const [factor,setFactor]=useState(0)
    const [transition,setTransition]=useState(true)
     useEffect(()=>{
     setOffset(sliderRef.current.offsetTop)
 
         const slide=setInterval(()=>{
-            if(factor<imag.length-1){
+            if(factor<dataSlaider.length-1){
                 setTransition(true)
                 setFactor(factor+1)
             }else{
@@ -36,11 +31,13 @@ function Slaider({setOffset}) {
   return (
 
     <div ref={sliderRef} className=' relative h-screen w-screen overflow-hidden '  >
-        {imag.map((item,index)=>{
+        {dataSlaider.map((item,index)=>{
             return<div  key={index} 
             style={{transform:`translate(${(index-factor)*100}%)`}} 
              className={transition ? 'absolute w-screen h-screen transition ease-in-out duration-500':'absolute w-screen h-screen'} >
-            <img src={item} className='w-screen h-screen '  />
+                 <Link to={`/products/${item.type}`}>
+            <img src={item.img} className='w-screen h-screen '  />
+                 </Link>
             </div>
         })}
 
@@ -49,13 +46,13 @@ function Slaider({setOffset}) {
         icon={faAngleDoubleLeft} 
         className='hidden md:inline absolute top-1/4 left-9 text-5xl' />
         <FontAwesomeIcon 
-        onClick={()=>nextImg(factor,setFactor,imag.length)}
+        onClick={()=>nextImg(factor,setFactor,dataSlaider.length)}
         icon={faAngleDoubleRight} 
         className='hidden md:inline absolute top-1/4 right-9 text-5xl' />
         <div className='absolute flex bottom-20 left-1/2 '>
 
         {
-            imag.map((item,index)=>{
+            dataSlaider.map((item,index)=>{
                 return(
                     <div
                     onClick={(e)=>sliderDots(e,setFactor,factor)}
