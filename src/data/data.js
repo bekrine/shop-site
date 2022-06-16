@@ -156,3 +156,6 @@ export const dataSlaider=[{
     img:slidimg2,
     type:'homme'
 }]
+
+export const tailles = ["Xs", "S", "M", "L", "XL", "XXL"]
+export const tailleshose = ["39", "40", "41", "42", "43", "44"]

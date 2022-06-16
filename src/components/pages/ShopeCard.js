@@ -9,6 +9,10 @@ function ShopeCard() {
     
 
   return (
+      <>
+      <div className={`hidden sm:inline w-1/2 absolute  top-[80px] h-screen bg-slate-200 overflow-hidden ${istoggle && "toggelcard"}`}>
+
+      </div>
     <div 
     className={`w-full sm:w-1/2 absolute  top-[80px] h-screen bg-white right-0 overflow-scroll ${istoggle && "toggelcard"} `}
     >
@@ -48,6 +52,7 @@ function ShopeCard() {
             <span>TOTLE:</span>
         </div>
     </div>
+    </>
   )
 }
 
