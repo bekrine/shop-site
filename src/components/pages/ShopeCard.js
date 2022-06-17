@@ -5,12 +5,11 @@ import {useSelector} from 'react-redux'
 function ShopeCard() {
     const istoggle=useSelector(state=>state.toggleCard.istoggle)
     const dataCard=useSelector(state=>state.dataManger)
-    // console.log("dd",dataCard)
     
 
   return (
       <>
-      <div className={`hidden sm:inline w-1/2 absolute  top-[80px] h-screen bg-slate-200 overflow-hidden ${istoggle && "toggelcard"}`}>
+      <div className={`none sm: w-1/2 absolute  top-[80px] h-screen bg-slate-200 overflow-hidden ${istoggle && "toggelcard"}`}>
 
       </div>
     <div 
@@ -23,32 +22,34 @@ function ShopeCard() {
 
                         return(
                             <div key={index} className='mb-7'>
-                        <h1 className='my-2 ml-20'>{item.payload.title}</h1>
+                        <h1 className='my-2 ml-20'>{item.payload[0].title}</h1>
                         <div className='flex justify-center '>
                             <div className='w-1/2'>
-                                <img src={item.payload.imge}/>
+                                <img src={item.payload[0].imge}/>
                             </div>
                             <div className='flex flex-col justify-around ml-3'>
-                                <h2>taille:40</h2>
+                                <h2>taille:{item.payload.tail}</h2>
                                 <div className='flex justify-between'>
                                     <button>-</button>
                                     <span>1</span>
                                     <button>+</button>
                                 </div>
-                                <h2>{item.payload.price}</h2>
+                                <h2>{item.payload[0].price} DH</h2>
                             </div>
                         </div>
                     </div>
                             )
                     })
-                : 'card is empthy'
+                : <div className='flex justify-center p-10'>
+                    card is empthy
+                </div>
             }
             
 
            
           
         </div>
-        <div>
+        <div className='fixed bottom-2 right-[20%]'>
             <span>TOTLE:</span>
         </div>
     </div>
