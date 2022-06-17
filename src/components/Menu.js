@@ -5,7 +5,7 @@ function Menu({Offset}) {
   const toggle=useSelector(state=>state.toggleMenu)
   return (
     <div 
-        style={{top:`${Offset}px`}} 
+        style={{top:`${80}px`}} 
         className={` w-full sm:w-1/2${menuStyle}
         ${toggle.istoggle && 'toggel'}`}>
           <div className='flex justify-around mt-8'>

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import {tailles,tailleshose} from '../../data/data'
 import { useDispatch } from 'react-redux'
 import {dataSlicer} from '../../featuers/dataManger/dataManger'
@@ -10,12 +10,22 @@ import {toggleCard} from '../../featuers/toggelcard/toggelcard'
 function DetaileProduct() {
   const param = useParams()
   const dispatch=useDispatch()
+  const [prod,setProd]=useState()
+  const [disabel,setDisabel]=useState(true)
+
 
   const addTocard=(product)=>{
-   dispatch( dataSlicer(...product))
+   dispatch( dataSlicer({...product}))
    dispatch(toggleCard())
     
   }
+
+const addTail=(e)=>{
+
+let newProd={...{...product}}
+ setProd({...newProd,tail:e.target.id})
+ e.target.parentElement.classList.toggle('active')
+}
 
   const product = data.filter(product => product.id === parseInt(param.id))
   let taille=null
@@ -44,7 +54,7 @@ function DetaileProduct() {
             taille.map((tail, index) => {
               return (
                 <div className='my-2' key={index}>
-                  <span  id={tail} onClick={(e)=>console.log(e.target.id)}>
+                  <span className=''  id={tail} onClick={(e)=>addTail(e)}>
                     {tail}
                     
                   </span>
@@ -54,9 +64,10 @@ function DetaileProduct() {
           }
 
         </div>
-        <div onClick={()=>addTocard(product)} className='m-8'>
+        <div onClick={()=>addTocard(prod)} className='m-8'>
           <Button 
           title={'AJOUTER AU PANIER'} 
+          
           />
         </div>
       </div>

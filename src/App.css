@@ -13,3 +13,7 @@ width: 100%;
     right: -100%;
     display: none
 }
+
+.active{
+    background-color: #80808047;
+}
