@@ -4,8 +4,13 @@ import {data} from '../../data/data'
 
 function Producte() {
     const param=useParams()
-    
-    const filterData= data.filter(item=>item.gender === param.type)
+    const filterData= data.filter(item=> {
+
+        if(param.prod){
+            return item.gender === param.type && item.type === param.prod
+        }
+       return item.gender === param.type
+    }) 
   return (
           filterData.map((item ,index)=>{
               return(

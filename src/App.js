@@ -14,10 +14,12 @@ function App() {
     
       <Navbar/>
       <ShopeCard/>
-   <Menu/>
+      <Menu/>
       <Routes>
       <Route path='/' element={<Home/>}/>
-      <Route path='/products/:type' element={<Producte/>} />
+      <Route path='/products/:type' element={<Producte/>} >
+      <Route path=':prod' element={<DetaileProduct/>} />
+      </Route>
       <Route path='/detailProduct/:id' element={<DetaileProduct/>}/>
       <Route path='recherch' element={<Recherche/>}/>
       </Routes>
