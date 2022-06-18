@@ -15,6 +15,9 @@ function DetaileProduct() {
 
 
   const addTocard=(product)=>{
+    if(product == undefined){
+      return alert('chois')
+    }
    dispatch( dataSlicer({...product}))
    dispatch(toggleCard())
     

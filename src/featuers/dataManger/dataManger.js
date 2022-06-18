@@ -8,9 +8,13 @@ export const dataMangerSlicer=createSlice({
     reducers:{
         dataSlicer:(state,action)=>{
             state.push(action)
+        },
+        deletItem:(state,action)=>{
+
+           return  state = (action.payload)
         }
     }
 })
 
-export const {dataSlicer}=dataMangerSlicer.actions
+export const {dataSlicer,deletItem}=dataMangerSlicer.actions
 export default dataMangerSlicer.reducer
