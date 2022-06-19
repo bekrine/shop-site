@@ -30,6 +30,7 @@ let newProd={...{...product}}
  e.target.parentElement.classList.toggle('active')
 }
 
+
   const product = data.filter(product => product.id === parseInt(param.id))
   let taille=null
   product[0].type === 'chouse'? taille=tailleshose : taille= tailles

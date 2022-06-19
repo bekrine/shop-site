@@ -3,8 +3,8 @@ import { useDispatch } from 'react-redux'
 import { toggle } from '../featuers/toggelMenu/toggelMenu'
 import {useSelector} from 'react-redux'
 import { Link, NavLink } from 'react-router-dom'
-const menuStyle=' absolute top-0  bg-white h-screen  transition ease-in-out duration-500'
-function Menu({Offset}) {
+const menuStyle=' absolute top-0  bg-white h-screen  '
+function Menu() {
   const dispatch=useDispatch()
   const [getType,setGetType]=useState('homme')
   const toggl=useSelector(state=>state.toggleMenu)
@@ -20,7 +20,7 @@ function Menu({Offset}) {
     <div 
         style={{top:`${80}px`,zIndex:1}} 
         className={` w-full sm:w-1/2${menuStyle}
-        ${toggl.istoggle && 'toggel'}`}>
+        ${toggl.istoggle && 'toggel'} `}>
           <div className='flex justify-around mt-8'>
 
             <span  onClick={(e)=>cardeClose(e)} >
