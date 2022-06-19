@@ -12,19 +12,23 @@ function ShopeCard() {
     let  dataCard=useSelector(state=>state.dataManger) 
     const [price,setPrice]=useState(0)
 
-    useEffect(()=>{
-     countPricce(dataCard)   
-    })
-    const countPricce=(dataCard)=>{
-        let total
-        dataCard.foreach(p=>total+=p.payload[0].price)
+     useEffect(()=>{
+        countPricce()
+     },[dataCard])
+
+    
+    
+    const countPricce=()=>{
+       let total=0
+        dataCard.forEach(element => {
+            total+=parseInt(element.payload[0].price)
+        });
         setPrice(total)
-    }
+     }
 
     const deletItems=(id)=>{
        let newdataCard=dataCard.filter(card=>card.payload[0].id !== id)
        dispatch(deletItem(newdataCard))
-       countPricce(dataCard)
     }
 
   return (
